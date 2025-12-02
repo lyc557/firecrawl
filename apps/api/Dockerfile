@@ -9,6 +9,8 @@ RUN corepack enable
 
 # Build Go shared library
 FROM golang:1.24 AS go-build
+ARG GOPROXY=https://goproxy.cn
+ENV GOPROXY=$GOPROXY
 WORKDIR /app
 COPY sharedLibs/go-html-to-md ./sharedLibs/go-html-to-md
 
